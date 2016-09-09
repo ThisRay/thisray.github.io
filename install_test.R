@@ -1,6 +1,9 @@
+
 install.packages("devtools")
-devtools::install_github("thisray/swirl")
+devtools::install_github("thisray/swirl", force=TRUE)
 library(swirl)
+library(curl)
+library(methods)
 try(uninstall_course("swirl_cht_course"), silent=TRUE)
 install_course_github(github_username='thisray', course_name='swirl_cht_course', branch = "master", multi = FALSE)
 
