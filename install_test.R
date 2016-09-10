@@ -1,7 +1,26 @@
 
 message('| start install')
-install.packages("devtools")
-devtools::install_github("thisray/swirl", force=TRUE)
+
+####
+
+
+
+local({
+  check_package <- function(pkg) {
+    if (!suppressWarnings(suppressMessages(require(pkg, character.only = TRUE)))) {
+      install.packages(pkg, repos = "http://wush978.github.io/R")
+    }
+  }
+  lapply(c("rappdirs", "bitops", "curl"), check_package)
+  #utils::install.packages("swirl", repos = "http://wush978.github.io/R")
+  install.packages("devtools")
+  devtools::install_github("thisray/swirl", force=TRUE)
+})
+
+
+####
+
+
 library(swirl)
 library(curl)
 library(methods)
