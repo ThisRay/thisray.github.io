@@ -1,5 +1,5 @@
 
-message('start install')
+message('| start install')
 install.packages("devtools")
 devtools::install_github("thisray/swirl", force=TRUE)
 library(swirl)
@@ -8,7 +8,7 @@ library(methods)
 try(uninstall_course("swirl_cht_course"), silent=TRUE)
 install_course_github(github_username='thisray', course_name='swirl_cht_course', branch = "master", multi = FALSE)
 message(' ')
-message('install ok!')
+message('| install ok!')
 
 if(grepl('mingw', sessionInfo()$R.version$os)){
 	Sys.setlocale(category = "LC_ALL", locale = "cht")
