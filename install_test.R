@@ -17,14 +17,9 @@ if(grepl('mingw', sessionInfo()$R.version$os)){
 	select_language(language="cht_mac")
 }
 
-local({
-	s1 <- "目前預設語言為繁體中文, 如需使用英文介面請輸入指令 : select_language(language="english") "
-	s2 <- "開始課程請輸入 : swirl()"
-	message(S1)
-	message(S2)
-})
 
-
+message("目前預設語言為繁體中文, 如需使用英文介面請輸入指令 : select_language\(language=\"english\"\) ")
+message("開始課程請輸入 : swirl\(\)")
 # select_language(language="chinese_traditional")
 # select_language(language="english")
 # swirl()
