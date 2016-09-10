@@ -19,8 +19,9 @@ if(grepl('mingw', sessionInfo()$R.version$os)){
 }
 
 message(' ')
-message('type : swirl() , when you are ready to begin')
-message('type : select_language(language="english") , if you want to change to English version menu')
+message('when you are ready to begin, type : swirl()')
+message('if you want to change to English version menu')
+message('type : select_language(language="english")')
 message(' ')
 message(' ')
 # select_language(language="chinese_traditional")
