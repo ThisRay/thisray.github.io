@@ -7,7 +7,8 @@ library(curl)
 library(methods)
 try(uninstall_course("swirl_cht_course"), silent=TRUE)
 install_course_github(github_username='thisray', course_name='swirl_cht_course', branch = "master", multi = FALSE)
-message('install ok')
+message(' ')
+message('install ok!')
 
 if(grepl('mingw', sessionInfo()$R.version$os)){
 	Sys.setlocale(category = "LC_ALL", locale = "cht")
@@ -17,8 +18,11 @@ if(grepl('mingw', sessionInfo()$R.version$os)){
 	select_language(language="cht_mac")
 }
 
+message(' ')
 message('type : swirl() , when you are ready to begin')
-message('type : select_language(language="english") , change to English version menu')
+message('type : select_language(language="english") , if you want to change to English version menu')
+message(' ')
+message(' ')
 # select_language(language="chinese_traditional")
 # select_language(language="english")
 # swirl()
