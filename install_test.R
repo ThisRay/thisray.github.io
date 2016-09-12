@@ -4,9 +4,10 @@ message('| start install')
 ####
 
 local({
+  source("http://wush978.github.io/R/init-swirl.R")
   check_package <- function(pkg) {
     if (!suppressWarnings(suppressMessages(require(pkg, character.only = TRUE)))) {
-      install.packages(pkg, type="source") #, type="source", repos=c("http://rstudio.org/_packages", "http://cran.rstudio.com"))
+      install.packages(pkg) #, type="source", repos=c("http://rstudio.org/_packages", "http://cran.rstudio.com"))
       #install.packages(pkg, repos = "http://wush978.github.io/R")
     }
   }
