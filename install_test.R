@@ -7,7 +7,7 @@ local({
   check_package <- function(pkg) {
     if (!suppressWarnings(suppressMessages(require(pkg, character.only = TRUE)))) {
       try(install.packages(pkg, repos = "http://wush978.github.io/R"))
-      try(install.packages(pkg, type="source", repos=c("http://rstudio.org/_packages", "http://cran.rstudio.com")))
+      try(install.packages(pkg, repos=c("http://rstudio.org/_packages", "http://cran.rstudio.com"))) # , type="source"
       #install.packages(pkg, repos = "http://wush978.github.io/R")
     }
   }
