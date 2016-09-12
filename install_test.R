@@ -19,9 +19,9 @@ local({
   
   check_package("devtools")
   #install.packages("devtools")
-  library(devtools)
+  require(devtools)
   
-  install_github("hadley/testthat")
+  devtools::install_github("hadley/testthat")
   
   lapply(c("rappdirs", "bitops", "curl"), check_package)
   lapply(c("stringi", "magrittr", "crayon", "digest", "git2r"), check_package)
