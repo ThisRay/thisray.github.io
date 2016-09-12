@@ -15,6 +15,14 @@ local({
       #install.packages(pkg, repos = "http://wush978.github.io/R")
     }
   }
+  
+  
+  check_package("devtools")
+  #install.packages("devtools")
+  library(devtools)
+  
+  install_github("hadley/testthat")
+  
   lapply(c("rappdirs", "bitops", "curl"), check_package)
   lapply(c("stringi", "magrittr", "crayon", "digest", "git2r"), check_package)
   lapply(c("testthat", "yaml", "RCurl", "stringr"), check_package)
@@ -23,9 +31,7 @@ local({
   #lapply(c("testthat", "yaml", "RCurl", "stringr"), check_package)
   #utils::install.packages("swirl", repos = "http://wush978.github.io/R")
   
-  check_package("devtools")
-  #install.packages("devtools")
-  library(devtools)
+
   devtools::install_github("thisray/swirl", force=TRUE)
 })
 
