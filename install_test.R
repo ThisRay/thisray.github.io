@@ -20,8 +20,8 @@ local({
   #lapply(c("testthat", "yaml", "RCurl", "stringr"), check_package)
   #utils::install.packages("swirl", repos = "http://wush978.github.io/R")
   
-  #check_package("devtools")
-  install.packages("devtools")
+  check_package("devtools")
+  #install.packages("devtools")
   library(devtools)
   devtools::install_github("thisray/swirl", force=TRUE)
 })
