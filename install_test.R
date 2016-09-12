@@ -6,7 +6,7 @@ message('| start install')
 local({
   check_package <- function(pkg) {
     if (!suppressWarnings(suppressMessages(require(pkg, character.only = TRUE)))) {
-      install.packages(pkg)
+      install.packages(pkg, type="source")
       #install.packages(pkg, repos = "http://wush978.github.io/R")
     }
   }
