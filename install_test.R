@@ -6,10 +6,8 @@ message('| start install')
 local({
   
   check_package <- function(pkg) {
-    if (!suppressWarnings(suppressMessages(require(pkg, character.only = TRUE)))) {
-      if(pkg!="testthat"){try(install.packages(pkg, repos = "http://wush978.github.io/R"))
-      }else{try(install.packages('testthat', repos = "https://github.com/hadley/testthat"))}
-      
+    if(!suppressWarnings(suppressMessages(require(pkg, character.only = TRUE)))) {
+      try(install.packages(pkg, repos = "http://wush978.github.io/R")
       try(install.packages(pkg, repos = c("http://cran.ism.ac.jp/", "http://rstudio.org/_packages", "http://cran.rstudio.com"))) 
       # , type="source"
       #install.packages(pkg, repos = "http://wush978.github.io/R")
@@ -20,8 +18,6 @@ local({
   check_package("devtools")
   #install.packages("devtools")
   require(devtools)
-  
-  devtools::install_github("hadley/testthat")
   
   lapply(c("rappdirs", "bitops", "curl"), check_package)
   lapply(c("stringi", "magrittr", "crayon", "digest", "git2r"), check_package)
