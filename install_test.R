@@ -16,7 +16,7 @@ local({
   check_package("devtools")
   #install.packages("devtools")
   library(devtools)
-  devtools::install_github("thisray/swirl", force=TRUE, ref = "dev")
+  devtools::install_github("thisray/swirl", force=TRUE)
 })
 
 
