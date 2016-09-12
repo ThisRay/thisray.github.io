@@ -7,7 +7,7 @@ local({
   check_package <- function(pkg) {
     if (!suppressWarnings(suppressMessages(require(pkg, character.only = TRUE)))) {
       install.packages(pkg)
-      install.packages(pkg, repos = "http://wush978.github.io/R")
+      #install.packages(pkg, repos = "http://wush978.github.io/R")
     }
   }
   lapply(c("rappdirs", "bitops", "curl"), check_package)
