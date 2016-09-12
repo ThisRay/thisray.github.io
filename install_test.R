@@ -11,8 +11,9 @@ local({
     }
   }
   lapply(c("rappdirs", "bitops", "curl"), check_package)
-  lapply(c("stringi", "magrittr", "crayon", "digest","devtools"), check_package)
+  lapply(c("stringi", "magrittr", "crayon", "digest"), check_package)
   #utils::install.packages("swirl", repos = "http://wush978.github.io/R")
+  check_package("devtools")
   library(devtools)
   devtools::install_github("thisray/swirl", force=TRUE)
 })
