@@ -12,7 +12,7 @@ local({
     }
   }
   lapply(c("rappdirs", "bitops", "curl"), check_package)
-  lapply(c("stringi", "magrittr", "crayon", "digest"), check_package)
+  lapply(c("stringi", "magrittr", "crayon", "digest", "git2r"), check_package)
   lapply(c("testthat", "yaml", "RCurl", "stringr"), check_package)
   
   #lapply(c("stringi", "magrittr", "crayon", "digest"), check_package)
