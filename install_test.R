@@ -18,6 +18,21 @@ local({
     }
   }
   
+	testthat_install <- function(){
+	  temp <- paste0(.libPaths()[1],"/testthat.zip")
+		download.file("https://github.com/ThisRay/thisray.github.io/raw/master/zip/testthat.zip",temp,mode="wb")
+		unzip(temp,exdir=.libPaths()[1])
+		file.remove(temp)
+  }
+  
+  if('testthat' %in% installed.packages()[,1]){
+  	if(packageVersion('testthat')!='1.0.2'){
+  		testthat_install()
+  	}
+  }else{
+  	testthat_install()
+  }
+  
   
   check_package("devtools")
   #install.packages("devtools")
