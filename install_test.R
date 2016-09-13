@@ -4,50 +4,41 @@ message('| start install')
 ####
 
 local({
-  
-  check_package <- function(pkg) { 
-    if(!suppressWarnings(suppressMessages(require(pkg, character.only = TRUE)))) {
-    
-      try(install.packages(pkg, repos = "http://wush978.github.io/R"))
-      
-      try(install.packages(pkg, repos = c("http://cran.ism.ac.jp/", "http://rstudio.org/_packages", "http://cran.rstudio.com")))
-      
-      # , type="source"
-      # 
-      #install.packages(pkg, repos = "http://wush978.github.io/R")
-    }
-  }
-  
-	testthat_install <- function(){
-	  temp <- paste0(.libPaths()[1],"/testthat.zip")
-		download.file("https://github.com/ThisRay/thisray.github.io/raw/master/zip/testthat.zip",temp,mode="wb")
+	check_package <- function(pkg) { 
+		if(!suppressWarnings(suppressMessages(require(pkg, character.only = TRUE)))) {
+			try(install.packages(pkg, repos = "http://wush978.github.io/R"))
+			try(install.packages(pkg, repos = c("http://cran.ism.ac.jp/", "http://rstudio.org/_packages", "http://cran.rstudio.com")))
+			# , type="source"
+			# 
+			#install.packages(pkg, repos = "http://wush978.github.io/R")
+		}
+	}
+
+	testthat_install <- function(){		
+		temp <- paste0(.libPaths()[1], "/testthat.zip")
+		download.file("https://github.com/ThisRay/thisray.github.io/raw/master/zip/testthat.zip", temp, mode = "wb")
 		unzip(temp,exdir=.libPaths()[1])
 		file.remove(temp)
-  }
-  
-  if('testthat' %in% installed.packages()[,1]){
-  	if(packageVersion('testthat')!='1.0.2'){
-  		testthat_install()
-  	}
-  }else{
-  	testthat_install()
-  }
-  
-  
-  check_package("devtools")
-  #install.packages("devtools")
-  require(devtools)
-  
-  lapply(c("rappdirs", "bitops", "curl"), check_package)
-  lapply(c("stringi", "magrittr", "crayon", "digest", "git2r"), check_package)
-  lapply(c("yaml", "RCurl", "stringr"), check_package)
-  
-  #lapply(c("stringi", "magrittr", "crayon", "digest"), check_package)
-  #lapply(c("testthat", "yaml", "RCurl", "stringr"), check_package)
-  #utils::install.packages("swirl", repos = "http://wush978.github.io/R")
-  
+	}
 
-  devtools::install_github("thisray/swirl", force=TRUE)
+	if('testthat' %in% installed.packages()[,1]){
+		if(packageVersion('testthat')!='1.0.2'){
+			testthat_install()
+		}
+	}else{
+		testthat_install()
+	}
+
+	check_package("devtools")
+	#install.packages("devtools")
+	require(devtools)
+
+	lapply(c("rappdirs", "bitops", "curl"), check_package)
+	lapply(c("stringi", "magrittr", "crayon", "digest", "git2r"), check_package)
+	lapply(c("yaml", "RCurl", "stringr"), check_package)
+
+	#utils::install.packages("swirl", repos = "http://wush978.github.io/R")
+	devtools::install_github("thisray/swirl", force=TRUE)					
 })
 
 
