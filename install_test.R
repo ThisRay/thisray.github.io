@@ -61,10 +61,10 @@ message('| install ok!')
 
 if(grepl('mingw', sessionInfo()$R.version$os)){
 	Sys.setlocale(category = "LC_ALL", locale = "cht")
-	select_language(language="cht_win")
+	select_language(language="cht_win", append_rprofile=T)
 }else{
 	Sys.setlocale(category = "LC_ALL", locale = "zh_TW.UTF-8")
-	select_language(language="cht_mac")
+	select_language(language="cht_mac", append_rprofile=T)
 }
 
 message(' ')
